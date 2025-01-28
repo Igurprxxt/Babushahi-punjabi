@@ -80,92 +80,116 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(0xffE8ECF0),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          toolbarHeight: 100,
+          title: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/images/babushahi-icon-punjabi.png',
-                height: 40,
-                width: 40,
-              ),
-              GestureDetector(
-                onTap: () {
-                  _openSocials(
-                      'https://www.facebook.com/BabushahiDotCom?mibextid=ZbWKwL');
-                },
-                child: Image.asset(
-                  'assets/images/facebook_logo.png',
-                  height: 30,
-                  width: 30,
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  _openSocials('https://youtube.com/@BabushahiTimesNetwork');
-                },
-                child: Image.asset(
-                  'assets/images/youtube_logo.png',
-                  height: 50,
-                  width: 50,
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  _openSocials(
-                      'https://twitter.com/Babushahikhabar?t=vmvHfBOTjZ7Q0JQPueyFVw&s=09');
-                },
-                child: Image.asset(
-                  'assets/images/twitter_logo.png',
-                  height: 27,
-                  width: 27,
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  _openSocials(
-                      'https://www.instagram.com/invites/contact/?i=1szcho49tfws8&utm_content=hfkvq2y');
-                },
-                child: Image.asset(
-                  'assets/images/instagram_logo.png',
-                  height: 40,
-                  width: 40,
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  _openSocials('https://t.me/babushahitimes');
-                },
-                child: Image.asset(
-                  'assets/images/telegram_logo.png',
-                  height: 30,
-                  width: 30,
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  _openSocials('');
-                },
-                child: GestureDetector(
-                  child: Image.asset(
-                    'assets/images/linkedin_logo.png',
-                    height: 30,
-                    width: 30,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset(
+                    'assets/images/babushahi-icon-punjabi.png',
+                    height: 40,
+                    width: 40,
                   ),
-                  onTap: () {
-                    _openSocials(
-                        'https://www.linkedin.com/in/baljit-balli-69017b20');
-                  },
-                ),
+                  GestureDetector(
+                    onTap: () {
+                      _openSocials(
+                          'https://www.facebook.com/BabushahiDotCom?mibextid=ZbWKwL');
+                    },
+                    child: Image.asset(
+                      'assets/images/facebook_logo.png',
+                      height: 30,
+                      width: 30,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      _openSocials(
+                          'https://youtube.com/@BabushahiTimesNetwork');
+                    },
+                    child: Image.asset(
+                      'assets/images/youtube_logo.png',
+                      height: 50,
+                      width: 50,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      _openSocials(
+                          'https://twitter.com/Babushahikhabar?t=vmvHfBOTjZ7Q0JQPueyFVw&s=09');
+                    },
+                    child: Image.asset(
+                      'assets/images/twitter_logo.png',
+                      height: 27,
+                      width: 27,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      _openSocials(
+                          'https://www.instagram.com/invites/contact/?i=1szcho49tfws8&utm_content=hfkvq2y');
+                    },
+                    child: Image.asset(
+                      'assets/images/instagram_logo.png',
+                      height: 40,
+                      width: 40,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      _openSocials('https://t.me/babushahitimes');
+                    },
+                    child: Image.asset(
+                      'assets/images/telegram_logo.png',
+                      height: 30,
+                      width: 30,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      _openSocials('');
+                    },
+                    child: GestureDetector(
+                      child: Image.asset(
+                        'assets/images/linkedin_logo.png',
+                        height: 30,
+                        width: 30,
+                      ),
+                      onTap: () {
+                        _openSocials(
+                            'https://www.linkedin.com/in/baljit-balli-69017b20');
+                      },
+                    ),
+                  ),
+                  GestureDetector(
+                    // TODO: Add link to babshai english app
+                    onTap: () {},
+                    child: Image.asset(
+                      'assets/images/babushahi-icon-english.png',
+                      height: 40,
+                      width: 40,
+                    ),
+                  ),
+                ],
               ),
-              GestureDetector(
-                // TODO: Add link to babshai english app
-                onTap: () {},
-                child: Image.asset(
-                  'assets/images/babushahi-icon-english.png',
-                  height: 40,
-                  width: 40,
+              Container(
+                width: 160,
+                height: 30,
+                child: Center(
+                  child: GestureDetector(
+                    onTap: () {
+                      _openSocials('https://www.babushahihindi.com');
+                    },
+                    child: Image.asset(
+                      'assets/images/babushahi_hindi.gif',
+                      width: 160,
+                      height: 30,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                 ),
-              ),
+              )
             ],
           ),
           bottom: AppBar(
