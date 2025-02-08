@@ -1,5 +1,6 @@
 // This is the main page where the user can see the news feed.
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../DataStore/category_cache.dart';
@@ -30,6 +31,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   List<Tab> topTabs = newsCategories.tabBarHeaders();
 
   Future<void> _openSocials(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
+  void _launchAppStore() async {
+    final String url = Platform.isAndroid
+        ? 'https://play.google.com/store/apps/details?id=com.babushahi.english&hl=en'
+        : 'https://apps.apple.com/in/app/babushahi-english/id1242727658';
+    print(url);
     final Uri uri = Uri.parse(url);
     if (!await launchUrl(
       uri,
@@ -164,7 +179,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                   GestureDetector(
                     // TODO: Add link to babshai english app
-                    onTap: () {},
+                    onTap: _launchAppStore,
                     child: Image.asset(
                       'assets/images/babushahi-icon-english.png',
                       height: 40,
